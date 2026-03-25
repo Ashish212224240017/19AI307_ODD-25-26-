@@ -1,71 +1,100 @@
+
 # Ex.No:1(B) CONDITIONAL STATEMENT
 
 ## QUESTION:
-A library charges a fine for every book returned late. For first 5 days the fine is 50 paise, for 6-10 days fine is one rupee and above 10 days fine is 5 rupees. If you return the book after 30 days your membership will be cancelled - Print ("Your Membership would be Cancelled.")
+A train company charges tickets based on age and travel class:
 
-Write a program to accept the number of days the member is late to return the book and display the fine or the appropriate message
+Children (<12): ₹5 per km (any class)
+
+Adults (12–60):
+
+Sleeper: ₹10/km
+
+AC: ₹15/km
+
+Seniors (>60): ₹7/km (any class)
+
+Task: Accept age, distance and travel class (1 for Sleeper, 2 for AC)(follow the same order to get the inputs). Calculate fare.
+
+For example:
+
+Input	
+5
+100
+Result
+500
+
+
 
 ## AIM:
-To write a Java program to accept the number of late days and calculate the library fine or display a membership cancellation message.
+
+To write a program that accepts the age, distance, and travel class (1 for Sleeper, 2 for AC) and calculates the train fare based on age-wise and class-wise fare rules.
 
 ## ALGORITHM :
-1. Start the program and read the number of late days from the user.
+```
+1.Start and read the inputs: age, distance, and travel class.
+2.Determine the rate per km based on age and class conditions.
+3.If age < 12, set rate = 5;
+   else if age 12–60, set rate = 10 for Sleeper or 15 for AC;
+   else if age > 60, set rate = 7.
+4.Calculate the fare using: fare = distance × rate.
+5.Display the total fare and Stop.
+```
 
-2. If the days are less than or equal to 5, calculate the fine as days × 0.50.
-
-3. Else if the days are between 6 and 10, calculate the fine as days × 1.00.
-
-4. Else if the days are between 11 and 30, calculate the fine as days × 5.00.
-
-5. If the days are more than 30, display the fine and print "Your Membership would be Cancelled." then stop the program.
 
 
 
 ## PROGRAM:
+```
+/*
+Program to implement variables and Operators using Java
+Developed by: Ashish S
+RegisterNumber:  212224240017
+*/
+```
 
- ```
-
+```
 import java.util.Scanner;
 
-public class LibraryFine {
+public class TrainFare {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int days = sc.nextInt();
-        sc.close();
 
-        double fine = 0.0;
+        int age = sc.nextInt();
+        int distance = sc.nextInt();
 
-        if (days <= 5) {
-            fine = days * 0.50;
-            System.out.printf("Fine Amount Pay to Rs :%.2f%n", fine);
-        } else if (days <= 10) {
-            fine = days * 1.00;
-            System.out.printf("Fine Amount Pay to Rs :%.2f%n", fine);
-        } else if (days <= 30) {
-            fine = days * 5.00;
-            System.out.printf("Fine Amount Pay to Rs :%.2f%n", fine);
-        } else {
-            fine = days * 5.00;
-            System.out.printf("Fine Amount Pay to Rs :%.2f%n", fine);
-            System.out.println("Your Membership would be Cancelled.");
+        int farePerKm=0;;
+
+        if (age < 12) {
+            farePerKm = 5;
+        } else if (age > 60) {
+            farePerKm = 7;
+        } else { 
+            int travelClass = sc.nextInt();
+            if (travelClass == 1) {
+                farePerKm = 10;
+            } else if (travelClass == 2) {
+                farePerKm = 15;
+            } else {
+                System.out.println("Invalid class");
+                return;
+            }
         }
+
+        int totalFare = farePerKm * distance;
+        System.out.println(totalFare);
     }
 }
 ```
 
-## SOURCE CODE:
-
-
-
-
-
-
 
 ## OUTPUT:
 
-<img width="1026" height="256" alt="image" src="https://github.com/user-attachments/assets/1fc7bdd5-207d-463a-8e2c-afe9d2294b78" />
+<img width="652" height="356" alt="image" src="https://github.com/user-attachments/assets/492431f7-c261-4417-aecd-114541a862fd" />
 
 
 ## RESULT:
-The program successfully calculates the library fine based on the number of late days and displays the fine or the membership cancellation message.
+
+Thus, a java program to calculates the train fare based on age-wise and class-wise fare rules is executed successfully.
+
 
